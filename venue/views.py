@@ -66,17 +66,17 @@ class VenueListView(ListView):
     model = Hangout
     template_name = 'venue/venue_home.html'
     context_object_name = 'venues'
-    paginate_by = 8
+    paginate_by = 10
     
 class VenueSortListView(ListView):
     model = Hangout
     template_name = 'venue/venue_home.html'
     context_object_name = 'venues'
-    paginate_by = 8
+    paginate_by = 10
     
     def get_queryset(self):
-        if self.kwargs.get('sort') == 'title':
-            s = 'title'
+        if self.kwargs.get('sort') == 'title' or self.kwargs.get('sort') == 'location':
+            s = self.kwargs.get('sort')
         else:
             s = '-' + self.kwargs.get('sort')
         return Hangout.objects.order_by(s)
@@ -85,7 +85,7 @@ class VenueFilterListView(ListView):
     model = Hangout
     template_name = 'venue/venue_home.html'
     context_object_name = 'venues'
-    paginate_by = 8
+    paginate_by = 10
     
     def get_queryset(self):
         return Hangout.objects.filter(type=self.kwargs.get('type'))
@@ -94,11 +94,11 @@ class VenueSortFilterListView(ListView):
     model = Hangout
     template_name = 'venue/venue_home.html'
     context_object_name = 'venues'
-    paginate_by = 8
+    paginate_by = 10
     
     def get_queryset(self):
-        if self.kwargs.get('sort') == 'title':
-            s = 'title'
+        if self.kwargs.get('sort') == 'title' or self.kwargs.get('sort') == 'location':
+            s = self.kwargs.get('sort')
         else:
             s = '-' + self.kwargs.get('sort')
         return Hangout.objects.filter(type=self.kwargs.get('type')).order_by(s)
@@ -112,3 +112,8 @@ class VenuePostListView(ListView):
     def get_queryset(self):
         obj = get_object_or_404(Hangout, id=self.kwargs.get('id'))
         return Post.objects.filter(venue=obj).order_by('-rating')
+    
+class VenueFilterListView(ListView):
+    model = Hangout
+    template_name = 'venue/venue_filter.html'
+    context_object_name = 'venues'

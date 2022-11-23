@@ -1,0 +1,9 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+    <h2 class='mb-3'>Select the Venue whose reviews you want</h2>
+    <select>
+    {% for venue in venues %}
+    <option value={{ venue.id }}>{{ venue.title }}, {{ venue.location }}</option>
+    {% endfor %}
+    </select>
+{% endblock content %}

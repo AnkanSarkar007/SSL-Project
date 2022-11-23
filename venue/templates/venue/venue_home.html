@@ -5,14 +5,16 @@
     <div>
       <a class = 'btn btn-outline-secondary' href='{% url 'venue-home-sort' 'rating' %}'>Average Rating<a>
       <a class = 'btn btn-outline-secondary' href='{% url 'venue-home-sort' 'total' %}'>Popularity<a>
-      <a class = 'btn btn-outline-secondary' href='{% url 'venue-home-sort' 'title' %}'>Alphabetical</a>
+      <a class = 'btn btn-outline-secondary' href='{% url 'venue-home-sort' 'title' %}'>Alphabetical(Name)</a>
+      <a class = 'btn btn-outline-secondary' href='{% url 'venue-home-sort' 'location' %}'>Alphabetical(Location)</a>
     </div>
     <h2 class='mb-3'>List of Venues</h2>
     {% else %}
     <div>
       <a class = 'btn btn-outline-secondary' href='{% url 'venue-type-sort' view.kwargs.type 'rating' %}'>Average Rating<a>
       <a class = 'btn btn-outline-secondary' href='{% url 'venue-type-sort' view.kwargs.type 'total' %}'>Popularity<a>
-      <a class = 'btn btn-outline-secondary' href='{% url 'venue-type-sort' view.kwargs.type 'title' %}'>Alphabetical</a>
+      <a class = 'btn btn-outline-secondary' href='{% url 'venue-type-sort' view.kwargs.type 'title' %}'>Alphabetical(Name)</a>
+      <a class = 'btn btn-outline-secondary' href='{% url 'venue-type-sort' view.kwargs.type 'location' %}'>Alphabetical(Location)</a>
     </div>
     <h2 class='mb-3'>List of {{view.kwargs.type|title}}s</h2>
     {% endif %}
