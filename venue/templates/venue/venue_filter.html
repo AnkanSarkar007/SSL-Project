@@ -1,9 +1,18 @@
 {% extends 'blog/base.html' %}
 {% block content %}
     <h2 class='mb-3'>Select the Venue whose reviews you want</h2>
-    <select>
+    <select class='btn' id='filter'>
     {% for venue in venues %}
     <option value={{ venue.id }}>{{ venue.title }}, {{ venue.location }}</option>
     {% endfor %}
     </select>
+    <button class = 'btn btn-outline-secondary' onclick="getOption()">Search</button>
+
+    <script type="text/javascript">
+    function getOption() {
+        selectElement = document.querySelector('#filter');
+        output = selectElement.value;
+        window.location = "http://localhost:8000/venue/" + output + "/"
+    }
+    </script>
 {% endblock content %}
