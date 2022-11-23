@@ -1,6 +1,10 @@
 {% extends 'blog/base.html' %}
 {% block content %}
+    {% if not view.kwargs.type %}
     <h2 class='mb-3'>List of Venues</h2>
+    {% else %}
+    <h2 class='mb-3'>List of {{view.kwargs.type}}s</h2>
+    {% endif %}
     {% for venue in venues %}
     <article class="media content-section">
         <div class="media-body">

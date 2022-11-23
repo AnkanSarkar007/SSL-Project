@@ -1,5 +1,12 @@
 {% extends 'blog/base.html' %}
 {% block content %}
+<h2 class='mb-3'>Filter based on type of Venue</h2>
+<div>
+  <a class = 'btn btn-outline-secondary' href='{% url 'venue-type' 'hotel' %}'>Hotels<a>
+  <a class = 'btn btn-outline-secondary' href='{% url 'venue-type' 'restaurant' %}'>Restaurants<a>
+  <a class = 'btn btn-outline-secondary' href='{% url 'venue-type' 'theatre' %}'>Theatres</a>
+</div>
+<h2 class='mb-3'>Recent Reviews</h2>
 {% for post in posts %}
 {% if forloop.counter <= 5 %}
 <article class="media content-section">

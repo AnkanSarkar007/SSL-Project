@@ -68,6 +68,15 @@ class VenueListView(ListView):
     context_object_name = 'venues'
     ordering = ['-rating']
     paginate_by = 8
+    
+class VenueFilterListView(ListView):
+    model = Hangout
+    template_name = 'venue/venue_home.html'
+    context_object_name = 'venues'
+    paginate_by = 8
+    
+    def get_queryset(self):
+        return Hangout.objects.filter(type=self.kwargs.get('type')).order_by('-rating')
 
 class VenuePostListView(ListView):
     model = Hangout
