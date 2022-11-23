@@ -11,7 +11,9 @@ class PostListView(ListView):
     model = Post
     template_name = 'blog/home.html'
     context_object_name = 'posts'
-    ordering = ['-date_posted']
+    
+    def get_queryset(self):
+        return Post.objects.order_by('-date_posted')[:5]
     
 class UserPostListView(ListView):
     model = Post
