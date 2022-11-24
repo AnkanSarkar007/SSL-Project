@@ -1,15 +1,14 @@
 {% extends 'blog/base.html' %}
 {% block content %}
-<h2 class='mb-3'>Filter based on type of Venue</h2>
+<h2 class='mb-3'>Filter based on type of Venue or <a href = '{% url 'venue-filter' %}'>Search through Venue name</a></h2>
 <div>
   <a href='{% url 'venue-type' 'hotel' %}'><div class="venue-type hotel"></div><a>
   <a href='{% url 'venue-type' 'restaurant' %}'><div class="venue-type restro"></div><a>
   <a href='{% url 'venue-type' 'theatre' %}'><div class="venue-type theatre"></div></a>
 </div>
-<h2 class='mb-3'>To search through Venue name <a href = '{% url 'venue-filter' %}'>click here</a></h2>
+<h2 class='mb-3'>Statistics</h2>
 <h2 class='mb-3'>Recent Reviews</h2>
 {% for post in posts %}
-{% if forloop.counter <= 5 %}
 <article class="media content-section post-card">
   <img class='rounded-circle article-img' src='{{ post.author.profile.image.url }}'>
   <div class="media-body">
@@ -30,6 +29,5 @@
     <p class="article-content">{{ post.content|truncatechars:50 }}</p>
   </div>
 </article>
-{% endif %}
 {% endfor %}
 {% endblock content %}

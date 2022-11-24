@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   {% if title %}
   <title>{{ title }}</title>
+  <link rel="icon" type="image/png" href="/media/favicon-32x32.png">
   <!-- <img src="media/blogbanner.jpg" alt="jksdvguiyuoghi" width="100%" class="banner"/> -->
   {% endif %}
 </head>
@@ -29,7 +30,7 @@
     </div>
     <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
       <div class="container">
-        <a class="navbar-brand mr-4" href="{% url 'blog-home' %}">Hangout Reviewer</a>
+        <a class="navbar-brand mr-4" href="{% url 'blog-home' %}"><img src='/media/favicon-32x32.png'>angout Reviewer</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle"
           aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -76,15 +77,13 @@
       <div class="row">
         <div class="col-sm-12 col-md-6">
           <h6>About</h6>
-          <p class="text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, doloremque quibusdam.
-            Nostrum, necessitatibus ducimus repellat nobis rerum doloribus quidem ut architecto ea illum quos, eveniet
-            aliquam, saepe suscipit molestiae quo.</p>
+          <p class="text-justify">This service rating website, <a href='{% url 'blog-home' %}'>Hangout Reviewer</a>, is created by the team Databasing Devils as a part of the course project, Software Systems Laboratory,
+             offered in the autumn semesters of IIT Bombay under Prof. Kavi Arya.</p>
         </div>
 
         <div class="col-xs-6 col-md-3">
           <h6>Quick Links</h6>
           <ul class="footer-links">
-            <li><a href="#">About Website</a></li>
             <li><a href="{% url 'about' %}">About Team</a></li>
             <li><a href="#">Contact Us</a></li>
           </ul>

@@ -1,12 +1,13 @@
 {% extends 'blog/base.html' %}
 {% block content %}
     <h2 class='mb-3'>Select the Venue whose reviews you want</h2>
-    <select class='btn' id='filter'>
+    <select class='btn btn-outline-primary' id='filter' style='margin-bottom:200px; margin-top:50px'>
     {% for venue in venues %}
     <option value={{ venue.id }}>{{ venue.title }}, {{ venue.location }}</option>
     {% endfor %}
     </select>
-    <button class = 'btn btn-outline-secondary' onclick="getOption()">Search</button>
+    <button class = 'btn btn-outline-primary' onclick="getOption()" style='margin-bottom:200px; margin-top:50px'>Search</button>
+    <br><br>
 
     <script type="text/javascript">
     function getOption() {
