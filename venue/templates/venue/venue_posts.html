@@ -20,7 +20,7 @@
             <span class="fa fa-star checked"></span>
             {% endfor %}
             {% for i in post.rating|get_range1 %}
-            <span class="fa fa-star"></span>
+            <span class="fa fa-star unchecked"></span>
             {% endfor %}
           </div>
           <h4><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h4>
