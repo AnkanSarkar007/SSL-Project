@@ -113,7 +113,7 @@ class VenuePostListView(ListView):
         obj = get_object_or_404(Hangout, id=self.kwargs.get('id'))
         return Post.objects.filter(venue=obj).order_by('-rating')
     
-class VenueFilterListView(ListView):
+class VenueSearchListView(ListView):
     model = Hangout
     template_name = 'venue/venue_filter.html'
     context_object_name = 'venues'

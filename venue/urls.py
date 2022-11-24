@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-from .views import VenuePostListView, VenueListView, VenueFilterListView, VenueSortListView, VenueSortFilterListView, VenueFilterListView
+from .views import VenuePostListView, VenueListView, VenueFilterListView, VenueSortListView, VenueSortFilterListView, VenueSearchListView
 
 urlpatterns = [
     path('', VenueListView.as_view(), name='venue-home'),
@@ -8,5 +8,5 @@ urlpatterns = [
     path('<int:id>/', VenuePostListView.as_view(), name='venue-posts'),
     path('type/<slug:type>/', VenueFilterListView.as_view(), name='venue-type'),
     path('type/<slug:type>/sort/<slug:sort>', VenueSortFilterListView.as_view(), name='venue-type-sort'),
-    path('filter/', VenueFilterListView.as_view(), name='venue-filter')
+    path('filter/', VenueSearchListView.as_view(), name='venue-filter')
 ]
