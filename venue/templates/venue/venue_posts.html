@@ -28,6 +28,12 @@
         </div>
       </article>
     {% endfor %}
+    <h2 class='mb-3'>Want to add more Reviews?</h2>
+    {% if posts|length != 0 %}
+    <a class = 'btn btn-outline-secondary' href='{% url 'post-create' %}'>Yes</a><br><br>
+    {% else %}
+    <a class = 'btn btn-outline-secondary' href='{% url 'post-create' %}' style='margin-bottom:200px;'>Yes</a><br><br>
+    {% endif %}
     <div align='center'>
       {% if is_paginated %}
         {% if page_obj.has_previous %}

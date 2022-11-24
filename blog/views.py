@@ -7,6 +7,9 @@ from venue.models import Hangout
 import decimal
 from django.template.defaulttags import register
 
+def about(request):
+    return render(request, 'blog/about.html')
+
 class PostListView(ListView):
     model = Post
     template_name = 'blog/home.html'
