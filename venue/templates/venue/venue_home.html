@@ -19,7 +19,7 @@
     <h2 class='mb-3'>List of {{view.kwargs.type|title}}s</h2>
     {% endif %}
     {% for venue in venues %}
-    <article class="media content-section" style='background: #efece1;'>
+    <article class="media content-section post-card" style='background-color:rgb(232, 215, 191);'>
         <div class="media-body">
           <div class="article-metadata">
             <a class="mr-2" href="{% url 'venue-posts' venue.id %}">{{ venue.title }}, {{ venue.location }}</a>

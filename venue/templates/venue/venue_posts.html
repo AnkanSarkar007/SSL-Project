@@ -7,7 +7,7 @@
     {% if forloop.counter == 1 %}
         <h2 class='mb-3'>Posts for {{ post.venue|trim }} ({{ page_obj.paginator.count }} reviews)</h2>
     {% endif %}
-    <article class="media content-section">
+    <article class="media content-section post-card">
         <img class='rounded-circle article-img' src='{{ post.author.profile.image.url }}'>
         <div class="media-body">
           <div class="article-metadata">

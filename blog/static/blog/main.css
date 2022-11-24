@@ -125,17 +125,66 @@ a.article-title:hover {
   color: rgb(195, 195, 195);
 }
 
-.media, .content-section{
+.media,
+.content-section {
   width: 90%;
 }
 
-.venue-type{
+.venue-type {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
-  height: 500px;
+  height: auto;
   border-radius: 20px;
   width: 30%;
   display: inline-block;
+  justify-content: center;
+  align-items: center;
+  overflow: auto;
+  margin: 5px;
+  /* padding: 10px; */
+}
+
+.venue-type img {
+  margin-top: auto;
+  margin-bottom: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  height: 90%;
+}
+
+.venue-type.photos {
+  margin: 10px;
+}
+
+.statistics {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  height: auto;
+  border-radius: 20px;
+  width: 90%;
+  /* display: inline-block; */
+  justify-content: center;
+  align-items: center;
+  overflow: auto;
+  margin: 5px;
+  font-weight: bolder;
+  font-size: xx-large;
+  text-align: justify;
+  /* padding-left: 5%; */
+  background-color: rgb(1, 82, 82);
+  color: tan;
+}
+
+.statistics .stat-text {
+  padding-left: 5%;
+  padding-top: 5%;
+}
+
+.statistics img {
+  /* margin: 5px; */
+  border-radius: 20px;
 }
 
 .post-card {
@@ -320,6 +369,6 @@ a.article-title:hover {
   }
 }
 
-.container{
+.container {
   width: 100%;
 }

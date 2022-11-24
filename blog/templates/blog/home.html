@@ -1,17 +1,27 @@
 {% extends 'blog/base.html' %}
 {% block content %}
-<h2 class='mb-3'>Filter based on type of Venue or <a href = '{% url 'venue-filter' %}'>Search through Venue name</a></h2>
+<h2 class='mb-3'>Filter based on type of Venue or <a href='{% url 'venue-filter' %}'>Search through Venue name</a></h2>
 <div>
-  <a href='{% url 'venue-type' 'hotel' %}'><div class="venue-type hotel"></div><a>
-  <a href='{% url 'venue-type' 'restaurant' %}'><div class="venue-type restro"></div><a>
-  <a href='{% url 'venue-type' 'theatre' %}'><div class="venue-type theatre"></div></a>
+  <a href='{% url 'venue-type' 'hotel' %}'>
+    <div class="venue-type"><img src="/media/hotel_icon.png" /></div>
+    <a>
+      <a href='{% url 'venue-type' 'restaurant' %}'>
+        <div class="venue-type"><img src="/media/restaurant_icon.png" /></div>
+        <a>
+          <a href='{% url 'venue-type' 'theatre' %}'>
+            <div class="venue-type"><img src="/media/theatre_icon.png" /></div>
+          </a>
 </div>
-<h2 class='mb-3'>Statistics</h2>
-total reviews - {{ posts|length }}, total venues - 52, total users (who have posted atleast 1 review) - {{ posts|get_user_length }}
+<h2 class='mb-3'> Site Statistics</h2>
+<div class="statistics">
+  <img src="/media/stats.jpg" style="float: right;"/>
+  <div class="stat-text">
+  Total Reviews - {{ posts|length }} <br> Total Venues - 52 <br> Total Reviewers - {{ posts|get_user_length }}
+  </div>
+</div>
 <h2 class='mb-3'>Recent Reviews</h2>
 {% for post in posts %}
-{% if forloop.counter <= 5 %}
-<article class="media content-section post-card">
+{% if forloop.counter <= 5 %} <article class="media content-section post-card">
   <img class='rounded-circle article-img' src='{{ post.author.profile.image.url }}'>
   <div class="media-body">
     <div class="article-metadata">
@@ -40,7 +50,7 @@ total reviews - {{ posts|length }}, total venues - 52, total users (who have pos
     <h4><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h4>
     <p class="article-content">{{ post.content|truncatechars:50 }}</p>
   </div>
-</article>
-{% endif %}
-{% endfor %}
-{% endblock content %}
+  </article>
+  {% endif %}
+  {% endfor %}
+  {% endblock content %}
