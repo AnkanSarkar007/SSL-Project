@@ -7,8 +7,10 @@
   <a href='{% url 'venue-type' 'theatre' %}'><div class="venue-type theatre"></div></a>
 </div>
 <h2 class='mb-3'>Statistics</h2>
+total reviews - {{ posts|length }}, total venues - 52, total users (who have posted atleast 1 review) - {{ posts|get_user_length }}
 <h2 class='mb-3'>Recent Reviews</h2>
 {% for post in posts %}
+{% if forloop.counter <= 5 %}
 <article class="media content-section post-card">
   <img class='rounded-circle article-img' src='{{ post.author.profile.image.url }}'>
   <div class="media-body">
@@ -39,5 +41,6 @@
     <p class="article-content">{{ post.content|truncatechars:50 }}</p>
   </div>
 </article>
+{% endif %}
 {% endfor %}
 {% endblock content %}

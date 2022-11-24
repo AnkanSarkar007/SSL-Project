@@ -1,7 +1,7 @@
 {% extends 'blog/base.html' %}
 {% block content %}
     <h2 class='mb-3'>Select the Venue whose reviews you want</h2>
-    <select class='btn btn-outline-primary' id='filter' style='margin-bottom:200px; margin-top:50px'>
+    <select class='btn btn-outline-secondary' id='filter' style='margin-bottom:200px; margin-top:50px'>
     {% for venue in venues %}
     <option value={{ venue.id }}>{{ venue.title }}, {{ venue.location }}</option>
     {% endfor %}

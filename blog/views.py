@@ -16,7 +16,7 @@ class PostListView(ListView):
     context_object_name = 'posts'
     
     def get_queryset(self):
-        return Post.objects.order_by('-date_posted')[:5]
+        return Post.objects.order_by('-date_posted')
     
 class UserPostListView(ListView):
     model = Post
@@ -105,3 +105,10 @@ def trim(value):
 @register.filter
 def pre_trim(value):
     return value[:value.find(':')]
+@register.filter
+def get_user_length(value):
+    a = []
+    for i in value:
+        a.append(i.author)
+    a = set(a)
+    return len(a)
